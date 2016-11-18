@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %><br>
+
+  <% @project.project_documents.each do |doc| %>
+    <%= image_tag attachment_url(doc, :file, :fill, 300, 300, format: "jpg") %><br>
+    <% doc.comments.each do |comment| %>
+      <%= comment.body %><br>
+      <p>New Comment</p>
+      <%= simple_form_for([@project, doc, doc.comments.build]) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :body %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Submit" %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</p>
