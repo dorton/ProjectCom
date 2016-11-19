@@ -16,6 +16,7 @@ def create_users
   user.email = Faker::Internet.email
   user.password = Faker::Internet.password(8)
   user.role = "client"
+  user.company = Faker::Company.name
   user.remote_profile_image_url = Faker::Avatar.image
   user.save!
   user

@@ -1,0 +1,30 @@
+
+<h1>Projects</h1>
+
+<ul class="collection collapsible popout" data-collapsible="accordion">
+<% User.where(role: 'client').joins(:projects).order('last_name ASC').uniq.each do |user| %>
+  <li>
+    <div class="collapsible-header collection-item avatar"><%= image_tag attachment_url(user, :profile_image), class: "circle" %>
+    <span class="title"><%= mail_to user.email, user.name if user.name.present? %></span>
+    <p>
+      <%= user.company %>
+    </p></div>
+    <div class="collapsible-body">
+      <ul class="collection">
+        <h4>Projects</h4>
+        <% user.projects.each do |project| %>
+          <h6><li class="collection-item">
+            <div>
+              <%= link_to project.name, project_path(project) %>
+            </div>
+          </li></h6>
+          <% end %>
+      </ul>
+    </div>
+  </li>
+<% end %>
+</ul>
+
+<br>
+
+<%= link_to 'New Project', new_project_path, class: "btn green" %>

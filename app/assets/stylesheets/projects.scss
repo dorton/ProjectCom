@@ -1,3 +1,105 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.modal {
+  width: 75% !important;
+  max-height: 100% !important;
+  overflow-y: scroll !important;
+}  /* increase the width, height and prevent vertical scroll! However, i don't recommend this, its better to turn on vertical scrolling. */
+
+
+.modal-content{
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+}
+
+@media (max-width: 992px) {
+    .article {
+        margin: 3em auto 3em auto!important;
+    }
+    .index-article {
+        margin: 3em 5em 3em 5em;
+    }
+    nav .nav-wrapper{
+      margin: auto;
+    }
+}
+
+@media (min-width: 993px) {
+  .article {
+    margin: 3em 17em 3em 17em;
+  }
+  .index-article {
+    margin: 3em 17em 3em 17em;
+  }
+  nav .nav-wrapper{
+    margin-left: 17em;
+    margin-right: 17em;
+  }
+  .input-form{
+
+  }
+}
+
+.index-article .title {
+    font-family: "BillabongItalicW00-Regular";
+}
+
+html {
+  font-weight: lighter!important;
+}
+
+.h1 .h2 .h3 .h4 .h5 {
+  font-weight: lighter!important;
+}
+
+nav a {
+    color: black!important;
+}
+
+
+nav{
+  background-color: white !important;
+}
+
+body {
+  background-color: #fafafa;
+}
+
+.main_header img {
+  border-radius: 75px;
+  text-align: right;
+}
+
+.main_header h4{
+  font-weight: lighter!important;
+}
+
+img.round {
+  display: center;
+  margin: 1em auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-border-radius: 99em;
+  -moz-border-radius: 99em;
+  border: solid;
+  border-radius: 99em;
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+
+}
+
+img.header {
+  width: 75px;
+  height: 75px;
+}

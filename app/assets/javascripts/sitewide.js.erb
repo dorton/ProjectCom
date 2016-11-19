@@ -1,0 +1,22 @@
+$( document ).on('turbolinks:load', function() {
+
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal({
+          dismissible: true, // Modal can be dismissed by clicking outside of the modal
+          opacity: .5, // Opacity of modal background
+          in_duration: 100, // Transition in duration
+          out_duration: 200, // Transition out duration
+          starting_top: '44%', // Starting top style attribute
+          ending_top: '10%', // Ending top style attribute
+        });
+
+        $('select').material_select();
+
+        $('#textarea1').val('New Text');
+        $('#textarea1').trigger('autoresize');
+
+        $('.tooltipped').tooltip({delay: 50});
+        $('.collapsible').collapsible();
+
+
+});

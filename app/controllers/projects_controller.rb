@@ -11,9 +11,6 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @comments = Comment.where(project_id: @project.id)
-    @documents = ProjectDocument.where(project_id: @project.id)
-    @users = User.where(project_id: @project.id)
   end
 
   # GET /projects/new
@@ -28,8 +25,9 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
+    admin = User.where(role: "admin")
     @project = Project.new(project_params)
-
+    @project.users << admin
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -77,6 +75,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name)
+      params.require(:project).permit(:name, user_ids:[])
     end
 end
